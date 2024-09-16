@@ -97,7 +97,8 @@ function selectAnswer(e) {
 }
 function showScore() {
     resetState();
-    questionElement.innerHTML = `Hai fatto ${score} punti su un totale di ${questions.length} punti!`;
+
+    score == questions.length ? questionElement.innerHTML = `Complimenti hai fatto il punteggio massimo di ${questions.length} punti` : questionElement.innerHTML = `Hai fatto ${score} punti su un totale di ${questions.length} punti!`;
     nextButton.innerHTML = "Gioca ancora";
     nextButton.style.display = "block";
 }
