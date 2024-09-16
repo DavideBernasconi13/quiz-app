@@ -73,6 +73,7 @@ function showQuestion() {
 
 function resetState() {
     nextButton.style.display = "none";
+    document.body.style.background = "";
     while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
@@ -98,7 +99,15 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
 
-    score == questions.length ? questionElement.innerHTML = `Complimenti hai fatto il punteggio massimo di ${questions.length} punti` : questionElement.innerHTML = `Hai fatto ${score} punti su un totale di ${questions.length} punti!`;
+    if (score == questions.length) {
+        questionElement.innerHTML = `Complimenti hai fatto il punteggio massimo di ${questions.length} punti :)`;
+        document.body.style.background = "green";
+    } else if (score == 0) {
+        questionElement.innerHTML = `Hai fatto ${score} punti. VAI A STUDIARE ;)`;
+        document.body.style.background = "red";
+    } else {
+        questionElement.innerHTML = `Hai fatto ${score} punti su un totale di ${questions.length} punti!`;
+    }
     nextButton.innerHTML = "Gioca ancora";
     nextButton.style.display = "block";
 }
